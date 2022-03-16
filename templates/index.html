@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style-index.css') }}" rel="stylesheet">
+  <title>Datacov</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand mt-0 mr-5 font-weight-bold" href="{{ url_for('index') }}">
+        <img class="brand-img d-inline-block align-text-center" src="/img/cov.png" alt="Brand"> Datacov
+      </a>
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#HomeNavbar" aria-controls="HomeNavbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="HomeNavbar">
+        <ul class="navbar-nav ml-auto mr-5">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+              </svg> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('sobre') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-people-fill"
+                viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                  d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+              </svg> Sobre
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mb-0 principal justify-content-center">
+    <br />
+    <div class="container mt-2">
+      <h2 class="panel">Painel Covid</h2>
+      <h5 class="panelsub">{{ dt_updated }}</h5>
+    </div>
+    <div class="container mt-5">
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col mb-4">
+          <div class="cardd">
+            <div class="cht_casos card-header font-weight-bold rounded-top-8">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-square-fill" viewBox="0 0 16 16">
+                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+              </svg> Casos
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['confirmados']['recuperados']|to_now }}</div>
+                <div class="font_text_dados text-muted small">Casos recuperados</div>
+              </div>
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['confirmados']['acompanhamento']|to_now }}
+                </div>
+                <div class="font_text_dados text-muted small">Em acompanhamento</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="cardd">
+            <div class="cht_conf card-header font-weight-bold rounded-top-8">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-square-fill" viewBox="0 0 16 16">
+                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+              </svg> Casos confirmados
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['confirmados']['total']|to_now }}</div>
+                <div class="font_text_dados text-muted small">Total casos</div>
+              </div>
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['confirmados']['novos']|to_now }}+</div>
+                <div class="font_text_dados text-muted small">Novos casos</div>
+              </div>
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['confirmados']['incidencia'] }}</div>
+                <div class="font_text_dados text-muted small">Incidência</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="cardd">
+            <div class="cht_obt card-header font-weight-bold rounded-top-8">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-square-fill" viewBox="0 0 16 16">
+                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+              </svg> Óbitos confirmados
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['obitos']['total']|to_now }}</div>
+                <div class="font_text_dados text-muted small">Mortes acumuladas</div>
+              </div>
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['obitos']['novos']|to_now }}+</div>
+                <div class="font_text_dados text-muted small">Mortes novas</div>
+              </div>
+            </div>
+            <div class="card-body row text-start">
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['obitos']['letalidade'] }}%</div>
+                <div class="font_text_dados text-muted small">Letalidade</div>
+              </div>
+              <div class="col">
+                <div class="font_num_dados font-weight-bold">{{ dados_cov['obitos']['mortalidade'] }}</div>
+                <div class="font_text_dados text-muted small">Mortalidade</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br />
+    <div class="container mt-5">
+      <h2 class="panel">Sintese de casos, óbitos das regiões e seus estados</h2>
+    </div>
+    <div class="container mt-5">
+      {% for i in regioes['Regioes'] %}
+      <div class="card mb-2 justify-content-center">
+        <div class="card-body row text-start">
+          <div class="col-lg-2" style="align-self: center;">
+            <button class="btn btt" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ i['_id'] }}"
+              aria-controls="collapse{{ i['_id'] }}" aria-expanded="false" aria-label="Toggle navigation">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                <path
+                  d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+              </svg>
+            </button>
+          </div>
+          <div class="col-lg-2">
+            <div class="font_num_dados font-weight-bold">{{ i['_id'] }}</div>
+            <div class="font_text_dados text-muted small">Região</div>
+          </div>
+          <div class="col-lg-2">
+            <div class="font_num_dados font-weight-bold">{{ i['casosAcumulado']|to_now }}</div>
+            <div class="font_text_dados text-muted small">Total casos</div>
+          </div>
+          <div class="col-lg-2">
+            <div class="font_num_dados font-weight-bold">{{ i['obitosAcumulado']|to_now }}</div>
+            <div class="font_text_dados text-muted small">Total mortes</div>
+          </div>
+        </div>
+        <div class="text-center collapse" id="collapse{{ i['_id'] }}">
+          {% for e in i['count'] %}
+          <div class="card-body row text-start mb-2">
+            <div class="col">
+              <div class="font_num_dados font-weight-bold">{{ e['_id'] }}</div>
+              <div class="font_text_dados text-muted small">Estado</div>
+            </div>
+            <div class="col">
+              <div class="font_num_dados font-weight-bold">{{ e['casosAcumulado']|to_now }}</div>
+              <div class="font_text_dados text-muted small">Total casos</div>
+            </div>
+            <div class="col">
+              <div class="font_num_dados font-weight-bold">{{ e['obitosAcumulado']|to_now }}</div>
+              <div class="font_text_dados text-muted small">Total mortes</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div><br />
+  </div>
+
+  <footer class="jumbotron mb-0">
+    <div class="container">
+      <div style="align-items: center;">
+        <p class="text-center mb-0">Desenvolvido com
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF007B" class="bi bi-heart-fill"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
+            </path>
+          </svg>
+          por
+          <a class="instagram" href="https://www.instagram.com/wesleyshw">
+            <img src="{{ url_for('static', filename='img/svg/instagram_icon.svg') }}" alt="instagram icon">
+            Wesley Júnior
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>

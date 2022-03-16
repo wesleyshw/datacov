@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style-index.css') }}" rel="stylesheet">
+  <title>Datacov - Sobre</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand mt-0 mr-5 font-weight-bold" href="{{ url_for('index') }}">
+        <img class="brand-img d-inline-block align-text-center" src="/img/cov.png" alt="Brand"> Datacov
+      </a>
+      <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#aboutNavbar" aria-controls="aboutNavbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="aboutNavbar">
+        <ul class="navbar-nav ml-auto mr-5">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-house-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+              </svg> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('sobre') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" class="bi bi-people-fill"
+                viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                  d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+              </svg> Sobre
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mb-0 principal justify-content-center">
+    <br />
+    <div class="container mt-2">
+      <h2 class="panel font-weight-bold" style="font-size: 24px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#fff" class="bi bi-people-fill"
+          viewBox="0 0 16 16">
+          <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+          <path fill-rule="evenodd"
+            d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+          <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+        </svg> Sobre
+      </h2>
+    </div>
+    <div class="container mt-3 font_text_dados font-weight-normal" style="color:#bfbfbf;">
+      <p class="mb-2">
+        Os dados de Covid-19 contidos nesse sistema são provenientes do Ministério da Saúde, que é acessado por meio de
+        uma API.
+      </p>
+      <p class="mb-2">
+        O Datacov é um sistema web, que foi criado com o objetivo de facilitar com que as pessoas tenha acesso aos dados
+        da Covid-19 no Brasil.
+      </p>
+      <p class="mb-0">
+        Porém, erros e perdas causadas por erros nos dados não é de responsabilidade do desenvolvedor.
+      </p>
+    </div><br />
+  </div>
+  <footer class="jumbotron mb-0">
+    <div class="container">
+      <div style="align-items: center;">
+        <p class="text-center mb-0">Desenvolvido com
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF007B" class="bi bi-heart-fill"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z">
+            </path>
+          </svg>
+          por
+          <a class="instagram" href="https://www.instagram.com/wesleyshw">
+            <img src="{{ url_for('static', filename='img/svg/instagram_icon.svg') }}" alt="instagram icon">
+            Wesley Júnior
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>
